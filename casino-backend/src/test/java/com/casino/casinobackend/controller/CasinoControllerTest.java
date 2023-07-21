@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -30,6 +32,8 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @WebMvcTest(CasinoControllerTest.class)
 class CasinoControllerTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CasinoControllerTest.class);
     @MockBean
     private CasinoService casinoService;
 
@@ -192,6 +196,7 @@ class CasinoControllerTest {
 
     @Test
     void addPlayer_UserExist_BadRequest() throws Exception {
+        LOG.info("addPlayer_UserExist_BadRequest Started");
         String username = "test";
         PlayerDTO playerDTO = new PlayerDTO(username);
         when(casinoService.addNewPlayer(playerDTO)).thenThrow(UsernameExistException.class);
@@ -200,6 +205,7 @@ class CasinoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(toJsonString(playerDTO)))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
+        LOG.info("addPlayer_UserExist_BadRequest Completed");
     }
 
 }

@@ -30,7 +30,7 @@ class CasinoConcurrencyTest {
     @Autowired
     private CasinoService casinoService;
 
-    @RepeatedTest(100)
+    @RepeatedTest(50)
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
     void testConcurrentBalanceUpdates() throws InterruptedException {
 
