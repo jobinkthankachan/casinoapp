@@ -9,7 +9,7 @@ Maven , Java 11
 ## Installation
 
 Clone the repo -> https://github.com/jobinkthankachan/casinoapp.git
-navigate to the local directory where you had cloned repo , go to casinoapp/ dir
+navigate to the local directory where you had cloned repo , go to casino-backend/ dir
 
 ## Start the Program
 
@@ -19,7 +19,7 @@ mvn spring-boot:run
 
 ## Run Unit Test
 
-navigate to the local directory where you had cloned repo , go to casinoapp/ dir and execute the below command
+navigate to the local directory where you had cloned repo , go to casino-backend/ dir and execute the below command
 
 ```bash
 mvn test
