@@ -1,6 +1,6 @@
 # Read Me
 
-# Docker Compose -> Spring boot App and MySql
+# Spring boot App and H2
 
 ## Prerequistes
 
