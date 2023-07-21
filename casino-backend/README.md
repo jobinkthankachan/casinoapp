@@ -2,7 +2,7 @@
 
 # Spring boot App and H2
 
-## Prerequistes
+## Prerequisites
 
 Maven , Java 11
 
