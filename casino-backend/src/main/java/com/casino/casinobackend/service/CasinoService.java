@@ -72,6 +72,9 @@ public class CasinoService {
     }
 
     public TransactionsDTO getLastTenTransactions(PlayerDTO playerDTO) {
+        if (playerDTO.getUsername().length() > 50) {
+            throw new InvalidUsernameException("Username must be at most 50 characters long");
+        }
         int playerId = playerRepository.findByUsername(playerDTO.getUsername()).orElseThrow(() -> new InvalidUsernameException("Invalid username-" + playerDTO.getUsername())).getPlayerId();
         List<Transaction> transactions = transactionRepository.findLast10ByPlayerIdOrderByTransactionDateDesc(playerId);
         List<TransactionDTO> transactionDTOSResponse = transactions.stream().
