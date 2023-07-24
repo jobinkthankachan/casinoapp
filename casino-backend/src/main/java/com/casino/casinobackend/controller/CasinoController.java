@@ -3,6 +3,7 @@ package com.casino.casinobackend.controller;
 import com.casino.casinobackend.dto.*;
 import com.casino.casinobackend.exception.*;
 import com.casino.casinobackend.service.CasinoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class CasinoController {
         } catch (InvalidPlayerIdException | NegativeAmountException e) {
             return ResponseEntity.badRequest().build();
         } catch (InsufficientAmountException e) {
-            return ResponseEntity.status(418).build();
+            return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
         }
     }
 
